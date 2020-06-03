@@ -6,3 +6,7 @@ window.onload = () => {
   // Pobierz element o id ua-string i wstaw do niego informacje o przeglądarce
   document.getElementById('ua-string').textContent = uaString;
 };
+
+//testowane przeglądarki: edge, opera, chrome
+//każda z przeglądarek "podszywa" się po inne
+//przeglądarka chrome korzysta z najnowszych wersji innych przeglądarek
