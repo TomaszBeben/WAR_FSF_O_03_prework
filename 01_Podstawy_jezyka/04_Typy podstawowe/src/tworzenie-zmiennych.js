@@ -6,9 +6,10 @@
 var someCondition = true;
 
 if (someCondition) {
-  var x = 123;
+  const x = 123;
+  console.log(x);
 }
-console.log(x);
+
 
 x = 456;
 console.log(x);
