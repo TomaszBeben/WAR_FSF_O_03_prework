@@ -11,7 +11,7 @@ function getThatName(func) {
   if (func.name) {
     return func.name;
   }
-
+  
   let stringifiedFunc = func.toString();
 
   stringifiedFunc = stringifiedFunc.substr('function '.length);
@@ -20,18 +20,18 @@ function getThatName(func) {
 
 console.log(getThatName(y));
 console.log(getThatName(z));
-console.log(getThatName(function () {}));
+console.log(getThatName(function x() {}));//zwraca nazwe argumenu lezeli ma argument
 
 console.log('--- FUNKCJA A ZMIENNA: ---');
 
 function hello(who, suffix) {
   return 'Hello ' + who + suffixer(who, suffix);
 
-  const suffixer = function suffixer(who, suffix) {
+  function suffixer(who, suffix) {
     return suffix.repeat(who.length);
   }
 }
 
-// console.log(hello('James', '!'));
+console.log(hello('James', '!'));
 
 
