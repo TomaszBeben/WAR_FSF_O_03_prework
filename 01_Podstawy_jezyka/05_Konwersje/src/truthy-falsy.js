@@ -5,6 +5,8 @@ console.log(Boolean(2));
 console.log(Boolean("2"));
 console.log(Boolean(2.1));
 console.log(Boolean(Boolean));
+console.log(Boolean({a:2}));
+console.log(Boolean([2]));
 
 // Skopiuj poniższą linijkę Boolean() i podstaw za `false` jak najwięcej wartości innych typów
 console.log('--- FALSE: ---');
