@@ -55,3 +55,12 @@ const myObj = {
 // funkcje zwróciły ten sam obiekt
 
 console.log('\n--- PRZEPIĘTE KONTEKSTY WSZYSTKICH FUNKCJI: ---');
+const boundToA = iAmGlobal.bind(myObj.a);
+const boundToB = obj.iAmObjBound.bind(myObj.b)
+// const boundToC = WithBoundFunction.WithBoundFunction.bind(myObj.c)
+console.log(boundToA());
+console.log(boundToB());
+// console.log(boundToC());
+
+
+
