@@ -4,6 +4,7 @@ const mojaPaczka = {
   telefony: 3,
 };
 
+
 /**
  * Funkcja wywołana po obsłużeniu paczki - niezależnie, co się stało
  * @param paczka - zawartość paczki, jak obiekt zadany wyżej
@@ -23,6 +24,9 @@ function coJakDojdzieNaPoczcie(paczka, status) {
  * @param metoda - metoda wysyłania - przekaż tu swoją funkcję (np. wyslijTradycyjnie)
  */
 function nadaj(paczka, metoda) {
+  if(metoda == niezdarnyKurier){
+    delete paczka.dokumenty;// nie działa, ale chyba nie rozumiem czemu
+  }
   console.log(new Date().toLocaleTimeString() + ': Rejestruję paczkę');
   console.log(new Date().toLocaleTimeString() + ': Zapisuję paczkę w systemie');
   console.log(new Date().toLocaleTimeString() + ': Przekazuję paczkę do sortowni');
@@ -45,5 +49,19 @@ function wyslijTradycyjnie(paczka, funkcjaObslugi) {
   }, 5000); // Czas doręczenia - 5000 milisekund
 }
 
+function wyslijPriorytetowo(paczka, funkcjaObslugi) {
+  return setTimeout(function() {
+    return funkcjaObslugi(paczka, 'DORĘCZONO troche szybciej');
+  }, 2000); 
+}
+function niezdarnyKurier(paczka, funkcjaObslugi) {
+  return setTimeout(function() {
+    return funkcjaObslugi(paczka, 'kurier cos zgubił');
+  }, 2000); 
+}
+
+
 // Poniżej umieść swój kod. Na start masz przykład wysyłki tradycyjnej
 nadaj(mojaPaczka, wyslijTradycyjnie);
+nadaj(mojaPaczka, wyslijPriorytetowo);
+nadaj(mojaPaczka, niezdarnyKurier)
