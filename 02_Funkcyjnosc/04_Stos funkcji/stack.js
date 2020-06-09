@@ -34,3 +34,7 @@ const myBookCollection = [
 ];
 
 // Poniżej umieść wywołania funkcji "findBooks". Pamiętaj o dodaniu śledzenia stosu z zadania!
+console.log(new Error().stack);
+findBooks(myBookCollection, 'Moby Dick');
+findBooks(myBookCollection, 'Ulisses');
+findBooks(myBookCollection, 'Harry Potter');
