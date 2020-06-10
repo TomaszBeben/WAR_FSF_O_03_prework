@@ -44,11 +44,12 @@ function robotAction(input, shouldEmitSound) {
       console.log('MOVE RIGHT');
       break;
       
-    }default: DEFAULT_ACTION;
+    }default:console.log(DEFAULT_ACTION);
   }
 }
 console.log(robotAction('shout', false));
 console.log(robotAction('call', true));
+console.log(robotAction('push', true));
 
 // Asercje pozostają takie same
 // console.assert(robotAction('shout', false) === 'MOVE BACK', 'Wrong action!');
