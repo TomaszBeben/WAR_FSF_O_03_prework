@@ -15,14 +15,14 @@ function emitSound() {
 function robotAction(input, shouldEmitSound) {
   let action = '';
   if(shouldEmitSound === true){
-  action = actionsMap[input] && emitSound();; // Wybierz akcję
+  action = actionsMap[input] && emitSound(); // Wybierz akcję
   }else{
-  action = actionsMap[input] && DEFAULT_ACTION;
+  action =  DEFAULT_ACTION;
   }
   return action;
 }
 console.log(robotAction('shout', true));
-console.log(robotAction('push', true));
+console.log(robotAction('push', false));
 console.log(robotAction('call', true));
 
 
