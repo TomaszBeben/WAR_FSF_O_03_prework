@@ -5,7 +5,29 @@
  * @returns string środek transportu - `car`, `bicycle` albo `walking`
  */
 function chooseTransportationMode(distance, weather) {
+    if (weather === 'snow'){
+        return 'car';
+    }else if(weather === 'rain' && distance < 500){
+        return  'walking'
+    }else if (weather === 'rain' && distance >= 500 && distance < 2000){
+        return 'bicycle'
+    }else if(weather === 'rain' && distance >= 2000){
+        return 'car'
+    }else if (weather === 'fair' && distance < 1000){
+        return 'walking'
+    }else if(weather === 'fair' && distance >= 1000 && distance < 4000){
+        return 'bicycle'
+    }else if(weather === 'fair' && distance >= 4000){
+        return 'car'
+    }else{
+        console.log('Andrzej, jo nie wiem');
+        
+    }
+
 }
+console.log(chooseTransportationMode(300, 'rain'));//???
+
+
 
 // Nie modyfikuj poniższych funkcji!
 // Jeśli zaimplementujesz funkcję poprawnie, te wykonają się też poprawnie
