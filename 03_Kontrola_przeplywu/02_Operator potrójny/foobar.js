@@ -5,6 +5,8 @@
  * @returns {string}
  */
 function foobar(firstSyllable, secondSyllable) {
+    if(firstSyllable) {'foo' ? true : false}
+    if (secondSyllable) {'bar' ? true : false}
 }
 
 console.assert(foobar(true, true) === 'foofoo', 'Wrong phrase!');
