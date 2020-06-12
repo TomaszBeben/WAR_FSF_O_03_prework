@@ -5,6 +5,9 @@ function hailDwarves(dwarfNames) {
   let phrase = 'Dinner is ready! Come home ';
 
   // Tutaj umieść swoją pętlę
+  for (const num of dwarfNames) {
+    phrase += num + " ";
+}
 
   return phrase;
 }
@@ -12,3 +15,4 @@ function hailDwarves(dwarfNames) {
 console.assert(
   hailDwarves(dwarves) ===
   'Dinner is ready! Come home Dopey, Sneezy, Bashful, Doc, Happy, Grumpy and Sleepy!', 'Wrong greeting phrase:', hailDwarves(dwarves));
+
