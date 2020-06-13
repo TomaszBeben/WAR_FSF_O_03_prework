@@ -14,13 +14,30 @@ const basePhrase = 'Following animals are ';
 function summarizeDiets(dietTypes) {
   // Przygotowujemy zmienną na frazy
   const phrases = [];
+  for (const property in dietTypes){
+    // console.log(`${property}: ${diets[property]}`);
 
-  // Tutaj umieść swój kod
+    phrases.push(basePhrase + `${property}: ${dietTypes[property]}`)
+    
+  }
 
+//  console.log(phrases[0]);
+ 
   return phrases;
+  
+  
 }
 
-const summaries = summarizeDiets(diets);
+
+const summaries =summarizeDiets(diets);
+// console.log(summaries[0]);
+
+
+
+console.log(summaries[0]);// znowu 'consolelogiem' działa a assercja juz nie
+console.log(summaries[1]);
+console.log(summaries[2]);
+console.log(summaries[3]);
 
 console.assert(summaries && summaries.length === 3, 'Wrong length of summaries!');
 console.assert(summaries[0] === 'Following animals are carnivores: Lion, Venus flytrap, Tiger, Falcon', 'Phrase incorrect!');
