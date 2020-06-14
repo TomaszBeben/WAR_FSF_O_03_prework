@@ -10,9 +10,25 @@ const phrases = [
 
 function censor(phrasesToCensor) {
   const censoredPhrases = [];
-
+  for(const word of phrasesToCensor){
+    if(word.includes("bloop")){
+      censoredPhrases.push("bloop")
+      continue;
+    }
+    if(word.includes("bleep")){
+      censoredPhrases.push( "bleep" , "We interrupt our program right now. We will be back shortly")
+      
+      // censoredPhrases.push("We interrupt our program right now. We will be back shortly")
+      break;
+    }
+    
+  }
+  // console.log(censoredPhrases.length);//4
   return censoredPhrases;
+
+
 }
+
 
 const finalPhrases = censor(phrases);
 console.assert(finalPhrases.length === 4, 'Wrong length of censored phrases:', finalPhrases.length);
@@ -20,4 +36,6 @@ console.assert(
   finalPhrases[finalPhrases.length - 1] === 'We interrupt our program right now. We will be back shortly',
   'Wrong final phrase: ', finalPhrases[finalPhrases.length - 1],
 );
+// console.log(finalPhrases);
+
 
