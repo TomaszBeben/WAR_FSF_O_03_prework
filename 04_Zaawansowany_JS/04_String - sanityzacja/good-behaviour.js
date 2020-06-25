@@ -15,9 +15,9 @@ const johnSentences = [
   ' !!I FANCY LISTENING TO BEATLES!!!       '
 ];
 
-const sentence1 = teachManners(johnSentences[0]);
-const sentence2 = teachManners(johnSentences[1]);
-const sentence3 = teachManners(johnSentences[2]);
+const sentence1 = teachManners(johnSentences[0]).replace(exclamations, '').toLowerCase();
+const sentence2 = teachManners(johnSentences[1]).replace(exclamations, '').toLowerCase();
+const sentence3 = teachManners(johnSentences[2]).replace(exclamations, '').toLowerCase();
 
 console.assert(sentence1 === 'i love mussels', 'He\'s not behaving well: ', sentence1);
 console.assert(sentence2 === 'i don\'t think he\'s going to run again', 'He\'s not behaving well: ', sentence2);
