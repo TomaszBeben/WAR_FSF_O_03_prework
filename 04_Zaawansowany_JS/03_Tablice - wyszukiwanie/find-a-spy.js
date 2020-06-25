@@ -2,8 +2,13 @@
  * Modify this spy detector using `find` to find a specific person - with ID equal `IAMASPY101010`
  */
 function spyDetector(people) {
-  return people[0];
+  
+  
+  return people.filter((person)=>person.id === 'IAMASPY101010')[0];
 }
+
+
+
 
 /**
  *  Bouncer will not allow anyone to enter if at least one person is not welcome in the casino
@@ -12,7 +17,7 @@ function spyDetector(people) {
 function bouncer(people) {
   for (let person of people) {
     if (person.isNotWelcome) {
-      return [];
+      return people.filter((person)=>person.isNotWelcome !== true);
     }
   }
 
@@ -39,11 +44,20 @@ const people = [
   }
 ];
 
+
+
 // Modigfy this line so people that are "not welcome" won't even try to enter the casino
-const peopleThatAreAllowedToEnter = people;
+const peopleThatAreAllowedToEnter = bouncer(people);
+//console.log(bouncer(people));
+
 
 const peopleInTheCasino = bouncer(peopleThatAreAllowedToEnter);
+//console.log(peopleInTheCasino);
+
 const spy = spyDetector(peopleInTheCasino);
 const spyName = (spy && spy.name) || 'Not found!';
+//console.log(spyDetector(peopleInTheCasino));
+
 
 console.assert(spyName === 'Dave Spy', 'Spy not found!', spyName);
+console.log(spyName);
