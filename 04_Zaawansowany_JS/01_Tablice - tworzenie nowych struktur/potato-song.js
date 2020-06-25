@@ -3,7 +3,9 @@ const part2 = [4, [[5]]];
 const part3 = [[[[6]]]];
 
 // HERE - modify the code so that all the parts compose one flat array:
-const wholeSong = [part1, part2, part3];
+//const wholeSong = [part1, part2, part3];
+const wholeSong = part1.concat(part2, part3).flat();
+console.log(wholeSong);
 
 function potatoSong(numbers) {
   let phrases = [];
@@ -18,9 +20,11 @@ function potatoSong(numbers) {
   phrases.push('more!');
 
   // HERE - transform the phrases so that the function returns only one string instead of array:
-  return phrases;
+  return phrases.join(', ');
 }
 
 // Do not modify code below!
 const expectedPhrase =  '1 potato, 2 potatoes, 3 potatoes, 4 potatoes, 5 potatoes, 6 potatoes, more!';
 console.assert(potatoSong(wholeSong) === expectedPhrase, 'Phrase does not match!', potatoSong(wholeSong));
+
+console.log(expectedPhrase);
