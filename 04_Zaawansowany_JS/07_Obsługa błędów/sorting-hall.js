@@ -42,8 +42,14 @@ const packages = [{
 
 try {
   for (let package of packages) {
-    // HERE - add your error handling code
-    sortPackage(package);
+    // HERE - add your error handling code   // nie wiem
+    try{
+      sortPackage(package)
+    }catch( package.size > 20){
+      throw err;
+    }
+    
+
   }
 } catch (err) {
   if (err.message === 'Broken package') {
