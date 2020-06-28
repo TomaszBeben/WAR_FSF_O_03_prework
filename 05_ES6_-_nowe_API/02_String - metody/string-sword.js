@@ -6,11 +6,20 @@ const SWORD_PATTERN = '{}oo((X))>';
  */
 function sword(length) {
   // First - create two string variables from sword pattern
-
+  const handle = SWORD_PATTERN.substring(0, 9);
+  console.log(handle);
+  const tip = SWORD_PATTERN.substring(9, SWORD_PATTERN.length);
+  console.log(tip);
+  
+  
   // Prepare the blade
-
+  const blade = BLADE_CHARACTER.repeat(length);
   // Glue the parts together and return whole sword
-  return SWORD_PATTERN;
+  // const sword = `${handle}${blade}${tip}`;
+  const sword = handle+ blade+ tip;
+  
+  
+  return sword
 }
 
 const shortSword = sword(5);
