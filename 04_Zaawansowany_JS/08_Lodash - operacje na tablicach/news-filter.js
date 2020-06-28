@@ -6,7 +6,23 @@ import _ from 'lodash';
  * @returns {*[]}
  */
 function newsFilter(newsStreams) {
-  return [[], []]; // First entry is important news, second entry - less important ones
+  let importantInfo = newsStreams[0].concat(newsStreams[1],newsStreams[2]);
+  console.log(importantInfo);
+  console.log('==========');
+  
+  importantInfo = _.compact(importantInfo)
+  console.log(importantInfo);
+  console.log('========');
+
+  importantInfo = _.uniqBy(importantInfo, 'id');
+  console.log(importantInfo);
+  console.log('========');
+
+  importantInfo = _.partition(importantInfo, important => {return important.isImportant});
+  console.log(importantInfo);
+  console.log('========');
+
+  return importantInfo;
 }
 
 const fbStream = [{
@@ -62,6 +78,8 @@ const twitterStream = [{
 }];
 
 const newsGroups = newsFilter([fbStream, googleNewsStream, twitterStream]);
+
+
 
 console.assert(newsGroups[0].length === 7, 'Should have 7 important news!', newsGroups[0].length);
 console.assert(newsGroups[1].length === 2, 'Should have 2 not-so-important news!', newsGroups[1].length);
