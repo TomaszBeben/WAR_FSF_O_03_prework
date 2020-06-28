@@ -34,7 +34,7 @@ function snooze(time) {
 }
 
 // HERE - modify this line
-const snoozeWithDelays = snooze;
+const snoozeWithDelays = _.throttle( snooze, SNOOZE_TIME)
 
 function alarm(time, howManyTimes) {
   startTime = new Date(); // Set beginning of the
