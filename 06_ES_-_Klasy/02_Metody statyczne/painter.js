@@ -18,6 +18,10 @@ class Painter {
     this.paintCharacter = paintCharacter;
   }
 
+static palette = PALETTE;
+static getPalette = () => {
+    return PALETTE || palette; 
+  }
   // ADD STATIC PROPERTY AND STATIC METHOD HERE!
 
   paint(size) {
