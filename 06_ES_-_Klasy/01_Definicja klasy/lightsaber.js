@@ -3,6 +3,21 @@ const CLASH_SOUND = 'kssszzzsft!';
 const WAVE_SOUND = 'wooowoooow';
 
 class Lightsaber {
+  constructor(color) {
+    this.color = color;
+  }
+  getColor() {
+    return this.color
+  }
+  slash(){
+    return SLASH_SOUND;
+  }
+  clash(){
+    return CLASH_SOUND;
+  }
+  wave() {
+    return WAVE_SOUND;
+  }
   // HERE ADD YOUR METHODS AND CONSTRUCTOR IMPLEMENTATION
 }
 
