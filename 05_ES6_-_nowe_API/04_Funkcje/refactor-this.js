@@ -18,9 +18,9 @@ function buildBanner(text) {
 
   
   const getTopBorderline = (index) => { 
-    leftCorner = this.lTCorner ? this.lTCorner : '*';
-    rightCorner = () => rightCorner = rTCorner ? this.rTCorner : '*';
-    return index === 0 ? leftCorner : index === bannerWidth-1 ? rightCorner : this.border;
+    leftCorner = charset.lTCorner ? charset.lTCorner : '*';
+    rightCorner = () => rightCorner = rTCorner ? charset.rTCorner : '*';
+    return index === 0 ? leftCorner : index === bannerWidth-1 ? rightCorner : charset.border;
   }
 
   // Build first row of the banner
@@ -29,7 +29,7 @@ function buildBanner(text) {
 
   
   const generateBannerMiddleSection = (elt, index) => {
-    return index === 0 ? this.border || '*' : index === bannerWidth -1 ? this.border || '*' : this.whiteSpace || ' ';
+    return index === 0 ? charset.border || '*' : index === bannerWidth -1 ? charset.border || '*' : charset.whiteSpace || ' ';
   }
 
 
@@ -38,7 +38,7 @@ function buildBanner(text) {
 
   function generateBannerTextline(elt, index) {
     const text_index = index - (bannerWidth - text.length) / 2;
-    return index === 0 ? this.border || '*' : index === bannerWidth - 1 ? this.border || '*' : text[text_index] || ' ';
+    return index === 0 ? charset.border || '*' : index === bannerWidth - 1 ? charset.border || '*' : text[text_index] || ' ';
   }
 
   pattern += Array(bannerWidth).fill(' ').map(generateBannerTextline).join('');
@@ -50,9 +50,9 @@ function buildBanner(text) {
 
   
   function generateBottomBorder(elt, index) {
-    leftCorner = this.lTCorner ? this.lTCorner : '*';
-    rightCorner =this.rTCorner ? this.rTCorner : '*';
-    return index === 0 ? leftCorner : index === bannerWidth -1 ? rightCorner : this.border || '*' 
+    leftCorner = charset.lTCorner ? charset.lTCorner : '*';
+    rightCorner =charset.rTCorner ? charset.rTCorner : '*';
+    return index === 0 ? leftCorner : index === bannerWidth -1 ? rightCorner : charset.border || '*' 
   }
 
   // Generate bottom line
