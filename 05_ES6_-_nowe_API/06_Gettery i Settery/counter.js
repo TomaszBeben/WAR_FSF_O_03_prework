@@ -3,9 +3,13 @@
  * Increments internal value every time when some code accesses `count()` computed property
  */
 const counter = {
+  counterValue : 0,
   get count() {
+    counter.counterValue++
+    return counter.counterValue
   },
   set count(val) {
+    counter.counterValue = val;
   },
 };
 
