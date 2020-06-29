@@ -16,95 +16,47 @@ function buildBanner(text) {
   // Add some spacing on each side of the text
   var bannerWidth = text.length + 8;
 
-  var that = this;
-  function getTopborderline(char, index) {
-    var leftCorner;
-    if (that.lTCorner) {
-      leftCorner = that.lTCorner;
-    } else {
-      leftCorner = '*'; // Default value
-    }
-
-    var right_croner;
-    if (that.rTCorner) {
-      right_croner = that.rTCorner;
-    } else {
-      right_croner = '*'; //d Default value
-    }
-
-    if (index === 0) {
-      return leftCorner;
-    } else if (index === bannerWidth - 1) {
-      return right_croner;
-    } else {
-      return that.border || '*';
-    }
+  
+  const getTopBorderline = (index) => { 
+    leftCorner = this.lTCorner ? this.lTCorner : '*';
+    rightCorner = () => rightCorner = rTCorner ? this.rTCorner : '*';
+    return index === 0 ? leftCorner : index === bannerWidth-1 ? rightCorner : this.border;
   }
 
   // Build first row of the banner
-  pattern += Array(bannerWidth).fill(' ').map(getTopborderline).join('');
+  pattern += Array(bannerWidth).fill(' ').map(getTopBorderline).join('');
   pattern += '\n';
 
-  var context = this;
-  function generate_banner_middle_section(elt, index) {
-    if (index === 0) {
-      return context.border || '*';
-    } else if (index === bannerWidth - 1) {
-      return context.border || '*';
-    } else {
-      return context.whiteSpace || ' ';
-    }
+  
+  const generateBannerMiddleSection = (elt, index) => {
+    return index === 0 ? this.border || '*' : index === bannerWidth -1 ? this.border || '*' : this.whiteSpace || ' ';
   }
 
 
-  pattern += Array(bannerWidth).fill(' ').map(generate_banner_middle_section).join('');
+  pattern += Array(bannerWidth).fill(' ').map(generateBannerMiddleSection).join('');
   pattern += '\n';
 
-  function generatebannertextline(elt, index) {
-    if (index === 0) {
-      return that.border || '*';
-    } else if (index === bannerWidth - 1) {
-      return that.border || '*';
-    } else {
-      const text_index = index - (bannerWidth - text.length) / 2;
-      return text[text_index] || ' ';
-    }
+  function generateBannerTextline(elt, index) {
+    const text_index = index - (bannerWidth - text.length) / 2;
+    return index === 0 ? this.border || '*' : index === bannerWidth - 1 ? this.border || '*' : text[text_index] || ' ';
   }
 
-  pattern += Array(bannerWidth).fill(' ').map(generatebannertextline).join('');
+  pattern += Array(bannerWidth).fill(' ').map(generateBannerTextline).join('');
   pattern += '\n';
 
   // Generate another empty line
-  pattern += Array(bannerWidth).fill(' ').map(generate_banner_middle_section).join('');
+  pattern += Array(bannerWidth).fill(' ').map(generateBannerMiddleSection).join('');
   pattern += '\n';
 
-  var _this = this;
-  function generate__bottom__border(elt, index) {
-    var leftCorenr;
-    if (that.lTCorner) {
-      leftCorenr = that.lTCorner;
-    } else {
-      leftCorenr = '*'; // Default value
-    }
-
-    var right_croner;
-    if (that.rTCorner) {
-      right_croner = that.rTCorner;
-    } else {
-      right_croner = '*'; //d Default value
-    }
-
-    if (index === 0) {
-      return leftCorenr;
-    } else if (index === bannerWidth - 1) {
-      return right_croner;
-    } else {
-      return that.border || '*';
-    }
+  
+  function generateBottomBorder(elt, index) {
+    leftCorner = this.lTCorner ? this.lTCorner : '*';
+    rightCorner =this.rTCorner ? this.rTCorner : '*';
+    return index === 0 ? leftCorner : index === bannerWidth -1 ? rightCorner : this.border || '*' 
   }
 
   // Generate bottom line
-  pattern += Array(bannerWidth).fill(' ').map(generate__bottom__border).join('');
+  pattern += Array(bannerWidth).fill(' ').map(generateBottomBorder).join('');
 
   return pattern;
 }
